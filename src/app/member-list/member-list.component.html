@@ -1,0 +1,44 @@
+
+   <div class="row">
+   <p class="col-sm-6">Showing {{page}} out of {{(total/6+1 | number:'1.0-0')}} items.</p>
+   <div class="col-sm-6"> <p class="text-right">
+
+    <select class="form-select" [(ngModel)]="selected" (change)="valueSelected()">
+      <option *ngFor="let item of selectitems">{{item}}</option>
+    </select>
+   </p></div>
+  
+  </div>
+<div class="row row-cols-12 row-cols-sm-12 row-cols-md-3 g-3">
+  <ng-container *ngIf="checkboxValue">
+    <div class="col" *ngFor="let list of clonedArr">
+      <div class="card shadow-sm"  >
+    
+        <div class="card-body text-center">
+            <img [src]="list.picture.large" alt="thumbnail" class="profile-card-align roundImg">
+          <p class="card-text">
+            <b>{{list.name.first}}</b></p>
+            <p class="card-text mute-m">{{list.location.street}}</p>
+                <p>{{list.location.city}} - {{list.location.postcode}}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!checkboxValue">
+<div class="col" *ngFor="let list of myList | paginate: { itemsPerPage: 6, currentPage: page, totalItems: total }">
+        <div class="card shadow-sm"  >
+      
+          <div class="card-body text-center">
+              <img [src]="list.picture.large" alt="thumbnail" class="profile-card-align roundImg">
+            <p class="card-text">
+              <b>{{list.name.first}}</b></p>
+              <p class="card-text mute-m">{{list.location.street}}</p>
+                  <p>{{list.location.city}} - {{list.location.postcode}}</p>
+          </div>
+        </div>
+      </div>
+     
+     </ng-container><br/>
+    <div class="row pt-2 text-center clear">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>

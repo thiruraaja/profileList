@@ -1,0 +1,10 @@
+.grey_bg {background-color:#ccc}
+.list-group-item {border-bottom:0px}
+.list-group-item:last-child {border-bottom: 1px solid rgba(0,0,0,.125)}
+.input-group {width:90%}
+.view-more, .mute-Bborder {cursor: pointer;padding:.5rem 1rem;border:1px solid rgba(0,0,0,.125);
+    border-top:1px solid #fff;margin-top:-6px; position: relative; z-index: 99;background-color: #fff}
+    .mute-Bborder {border-bottom: 0px}
+    .input-group>.form-control {border-radius:20px;}
+    .input-group-text {background-color: #fff;border-right: 0px; border-radius: 20px;position: relative;left:10px;z-index: 99;}
+    .mute-Bborder {border-top:1px solid rgba(0,0,0,.125);border-bottom:1px solid #fff;margin-top:0px;margin-bottom:-6px;}
