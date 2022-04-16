@@ -1,8 +1,10 @@
 
+    <a [routerLink]="['/members']">Go Back</a>
     <div class="col" *ngIf="getSingleList.length===0">
       Profile List Not Selected
     </div>
     <div class="col mycard" *ngIf="getSingleList.length != 0">
+      <a [routerLink]="['/members']" class="close-panel">X</a>
             <div class="card shadow-md">
                <h3 class="text-center"> <b>{{getSingleList.name.first}}</b></h3>
               <div class="card-body">

@@ -1,4 +1,4 @@
-.mycard {width:360px;margin:10px auto;}
+.mycard {width:360px;margin:10px auto;position: relative;}
 .roundImg {border-radius:100px}
 .mute-m {margin:0}
 .text-right {text-align:right}
@@ -6,3 +6,7 @@
 .clear {clear: both;width:100%;float:left;}
 .card-text {display:flex;flex-direction: column;justify-content: space-between}
 .label {font-weight: 600;text-decoration: underline}
+a {font-size:14px;color:#222;text-decoration:underline;margin:20px 0;}
+
+.close-panel {position: absolute;right: -10px;top: -20px;font-size: 20px;font-weight: bold;z-index: 99;cursor: pointer;text-decoration: none;
+width: 26px; height: 30px;background: #fff; border-radius: 6px;border: 1px solid #999;text-align: center;margin-top: 2px;float:right }
