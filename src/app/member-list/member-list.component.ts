@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input, OnChanges } from '@angular/core';
 import { MemberService } from '../shared/member.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-member-list',
@@ -19,30 +20,33 @@ export class MemberListComponent implements OnInit, OnChanges {
   clonedArr:any;
   @Input() checkboxValue:any;
 
-  constructor(private members: MemberService) { }
+  constructor(private memberservice: MemberService, private router: Router) { }
 
   @Output() transferData:EventEmitter<string[]> = new EventEmitter<string[]>();
 
   ngOnInit(): void {
-    this.members.getmemberList().subscribe((data:any)=> {
+    this.memberservice.getmemberList().subscribe((data:any)=> {
       this.myList = data.results;
     //  console.log(typeof(this.myList))
      // this.pagedList = this.myList.slice(0, 3);
      this.total =  this.myList.length;
      this.transferData.emit(this.myList);    
     })
- this.pagedList = this.myList
+ this.pagedList = this.myList;
   }
 
    ngOnChanges() {     
-     this.clonedArr = [...this.myList];
-    // console.log(clonedArr);
-    if(this.checkboxValue === '') {
-      this.myList = this.myList
-    } else {
-      this.clonedArr= this.clonedArr.filter((item:any)=> item.location.city === this.checkboxValue)
-     // console.log(this.clonedArr)
-    }
+     setTimeout(()=>{
+      this.clonedArr = [...this.myList];
+      // console.log(clonedArr);
+      if(this.checkboxValue === '') {
+        this.myList = this.myList
+      } else {
+        this.clonedArr= this.clonedArr.filter((item:any)=> item.location.city === this.checkboxValue)
+       // console.log(this.clonedArr)
+      }
+     },10)
+    
    }
 
    myFilter() {
@@ -92,9 +96,13 @@ this.myList.map((element:any) => {
 });
 
 
- 
 }
 
+getData(data:any) {
+this.memberservice.sendDatas(data)
+this.router.navigate(['member-list-item']);
+console.log("alrt")
+}
 
 
 }

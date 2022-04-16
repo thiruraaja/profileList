@@ -1,0 +1,32 @@
+<div class="row p-4">
+     <div class="col-sm-12 col-md-3">
+       <h4>List a member</h4>
+      
+       <div class="mute-Bborder">Location</div>
+       
+               <ul class="list-group">
+                   
+                   <li class="list-group-item" *ngFor="let item of importedDatas | slice:0:show; let i=index">
+                   
+                     <input id="my_{{item.location.city}}" class="form-check-input me-1" type="checkbox" [checked]="item.isSelected" (change)="filterCity($event)" value="{{item.location.city}}" aria-label="...">
+                   <b> {{item.location.city}}</b>
+                   </li>
+                   
+                 
+                 </ul>
+                 <div *ngIf="show < importedDatas.length" class="view-more" (click)="viewMore()"> View More..</div>
+         </div> 
+         
+    
+     <div class="col-sm-12 col-md-9">
+         
+          
+   <app-member-list [checkboxValue]="selectedCheckbox" (transferData)="receivedData($event)"></app-member-list>
+          
+           
+         
+         
+       
+     </div>
+     
+   </div>

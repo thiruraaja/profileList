@@ -1,5 +1,8 @@
+.mycard {width:360px;margin:10px auto;}
 .roundImg {border-radius:100px}
 .mute-m {margin:0}
 .text-right {text-align:right}
 .form-select {width:200px;float: right;margin-bottom:10px}
 .clear {clear: both;width:100%;float:left;}
+.card-text {display:flex;flex-direction: column;justify-content: space-between}
+.label {font-weight: 600;text-decoration: underline}

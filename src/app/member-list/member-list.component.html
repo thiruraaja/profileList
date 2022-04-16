@@ -26,7 +26,7 @@
   </ng-container>
   <ng-container *ngIf="!checkboxValue">
 <div class="col" *ngFor="let list of myList | paginate: { itemsPerPage: 6, currentPage: page, totalItems: total }">
-        <div class="card shadow-sm"  >
+        <div class="card shadow-sm"  (click)="getData(list  )">
       
           <div class="card-body text-center">
               <img [src]="list.picture.large" alt="thumbnail" class="profile-card-align roundImg">
@@ -42,3 +42,5 @@
     <div class="row pt-2 text-center clear">
         <pagination-controls (pageChange)="page = $event"></pagination-controls>
       </div>
+
+      

@@ -1,0 +1,25 @@
+
+    <div class="col" *ngIf="getSingleList.length===0">
+      Profile List Not Selected
+    </div>
+    <div class="col mycard" *ngIf="getSingleList.length != 0">
+            <div class="card shadow-md">
+               <h3 class="text-center"> <b>{{getSingleList.name.first}}</b></h3>
+              <div class="card-body">
+                <div class="text-center">
+                  <img [src]="getSingleList.picture.large" alt="thumbnail" class="profile-card-align roundImg">
+                </div>
+               
+                  <p class="card-text mute-m">
+                  <span class="label"> gender: </span> <span>{{getSingleList.gender}}</span>
+                  <span class="label"> location:</span> <span>{{getSingleList.location.street}},{{getSingleList.location.city}} - {{getSingleList.location.postcode}}</span>
+                   <span class="label"> Registered Date:</span> <span> {{getSingleList.registered.date | date:"MM/dd/yyyy"}}</span>
+                   <span class="label"> Phone:</span> <span> {{getSingleList.phone}}</span>
+                   <span class="label"> email:</span> <span>{{getSingleList.email}}</span>
+                    </p>
+                  
+              </div>
+            </div>
+          </div>
+         
+        
