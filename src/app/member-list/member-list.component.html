@@ -12,7 +12,7 @@
 <div class="row row-cols-12 row-cols-sm-12 row-cols-md-3 g-3">
   <ng-container *ngIf="checkboxValue">
     <div class="col" *ngFor="let list of clonedArr">
-      <div class="card shadow-sm"  >
+      <div class="card shadow-sm" (click)="getData(list)">
     
         <div class="card-body text-center">
             <img [src]="list.picture.large" alt="thumbnail" class="profile-card-align roundImg">
@@ -26,7 +26,7 @@
   </ng-container>
   <ng-container *ngIf="!checkboxValue">
 <div class="col" *ngFor="let list of myList | paginate: { itemsPerPage: 6, currentPage: page, totalItems: total }">
-        <div class="card shadow-sm"  (click)="getData(list  )">
+        <div class="card shadow-sm"  (click)="getData(list)">
       
           <div class="card-body text-center">
               <img [src]="list.picture.large" alt="thumbnail" class="profile-card-align roundImg">
